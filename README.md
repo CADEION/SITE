@@ -12,7 +12,7 @@ The application features a clean and responsive UI, closely aligned with the Fig
 
 ## APK File
 
-The APK file for this project is available for download [here](https://drive.google.com/drive/folders/15anXlWr5ZoVnKey_4KuEmgJYnAOMDKo4?usp=sharing). You can download it for testing on Android devices.
+The APK file for this project is available for download (https://drive.google.com/drive/folders/15anXlWr5ZoVnKey_4KuEmgJYnAOMDKo4?usp=sharing). You can download it for testing on Android devices.
 
 The APK file for this project is available in the **Releases** section. You can download it for testing on Android devices.
 
@@ -21,7 +21,7 @@ The APK file for this project is available in the **Releases** section. You can 
 ![Screenshot 1](screenshots/screenshot1.png)
 ![Screenshot 2](screenshots/screenshot2.png)
 
-*(Add your screenshots in a `screenshots` folder in the repository)*
+
 
 ## Getting Started
 
