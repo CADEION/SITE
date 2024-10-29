@@ -17,29 +17,35 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
     super.initState();
 
     _controllers = [
-      AnimationController(vsync: this, duration: const Duration(milliseconds: 250)),
-      AnimationController(vsync: this, duration: const Duration(milliseconds: 400)),
-      AnimationController(vsync: this, duration: const Duration(milliseconds: 500)),
-      AnimationController(vsync: this, duration: const Duration(milliseconds: 550)),
-      AnimationController(vsync: this, duration: const Duration(milliseconds: 600)),
+      AnimationController(
+          vsync: this, duration: const Duration(milliseconds: 250)),
+      AnimationController(
+          vsync: this, duration: const Duration(milliseconds: 400)),
+      AnimationController(
+          vsync: this, duration: const Duration(milliseconds: 500)),
+      AnimationController(
+          vsync: this, duration: const Duration(milliseconds: 550)),
+      AnimationController(
+          vsync: this, duration: const Duration(milliseconds: 600)),
     ];
 
     _slideAnimations = _controllers.map((controller) {
       return Tween<Offset>(
-        begin: const Offset(-1.0, 0.004), // Start from slightly below
+        begin: const Offset(-1.0, 0.004),
         end: Offset.zero,
       ).animate(CurvedAnimation(parent: controller, curve: Curves.easeInOut));
     }).toList();
 
     _rotationAnimations = _controllers.map((controller) {
       return Tween<double>(
-        begin: 0.1, // Slight clockwise rotation (in radians)
-        end: 0.0,   // Ends with no rotation
+        begin: 0.1,
+        end: 0.0,
       ).animate(CurvedAnimation(parent: controller, curve: Curves.easeInOut));
     }).toList();
 
     for (int i = 0; i < _controllers.length; i++) {
-      Future.delayed(Duration(milliseconds: i * 100), () => _controllers[i].forward());
+      Future.delayed(
+          Duration(milliseconds: i * 100), () => _controllers[i].forward());
     }
 
     moveToOnboard(context);
@@ -50,12 +56,13 @@ class _SplashState extends State<Splash> with TickerProviderStateMixin {
       Navigator.push(
         context,
         PageRouteBuilder(
-          transitionDuration: const Duration(milliseconds: 800),  // Longer duration for smoothness
+          transitionDuration: const Duration(milliseconds: 800),
           pageBuilder: (context, animation, secondaryAnimation) => Home(),
           transitionsBuilder: (context, animation, secondaryAnimation, child) {
-            const begin = Offset(1.0, 0.0); // Slide in from the right
+            const begin = Offset(1.0, 0.0);
             const end = Offset.zero;
-            final tween = Tween(begin: begin, end: end).chain(CurveTween(curve: Curves.easeInOutCubic));
+            final tween = Tween(begin: begin, end: end)
+                .chain(CurveTween(curve: Curves.easeInOutCubic));
 
             return SlideTransition(
               position: animation.drive(tween),
